@@ -1,6 +1,5 @@
-#spring boot整合kafka实现消息队列#
-##kafka安装##
-####step 1:下载kafka####
+##kafka安装
+####step 1:下载kafka  
 <pre>
 1. > wget http://mirror.bit.edu.cn/apache/kafka/1.1.0/kafka_2.11-1.1.0.tgz
 
