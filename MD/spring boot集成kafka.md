@@ -6,13 +6,13 @@
 </pre>
 
 官网下载地址：http://kafka.apache.org/quickstart
-####step 2:解压并安装kafka####
+#### step 2:解压并安装kafka
 <pre>
 1. > tar -xzf kafka_2.11-1.1.0.tgz
 2. > cd kafka_2.11-1.1.0
 </pre>
 
-####step 3:修改kafka配置文件####
+#### step 3:修改kafka配置文件
 <pre>
 1. > vi config/server.properties
 </pre>
@@ -23,7 +23,7 @@
     #zookeeper地址和端口
     zookeeper.connect=47.104.158.74:2181
 
-####step 4:启动 zookeeper 和 kafka####
+#### step 4:启动 zookeeper 和 kafka
 启动zookeeper
 <pre>
 1. > bin/zookeeper-server-start.sh config/zookeeper.properties &  
@@ -33,15 +33,15 @@
 1. > bin/kafka-server-start.sh config/server.properties &
 </pre>
     
-##spring boot集成kafka##
-####step 1:pom文件引入####
+## spring boot集成kafka
+#### step 1:pom文件引入
     
 	<dependency>
 	    <groupId>org.springframework.kafka</groupId>
 	    <artifactId>spring-kafka</artifactId>
 	</dependency>
     
-####step 2:配置文件####
+#### step 2:配置文件
     kafka.consumer.servers=47.104.158.74:9092
     kafka.consumer.enable.auto.commit=true
     kafka.consumer.session.timeout=6000
@@ -56,7 +56,7 @@
     kafka.producer.linger=1
     kafka.producer.buffer.memory=40960
     
-####step 3:生产者配置类####
+#### step 3:生产者配置类
 	@Configuration
 	@EnableKafka
 	public class KafkaProducerConfig {
@@ -90,7 +90,7 @@
 	    }
 	}
 
-####step 4:消费者配置类####
+#### step 4:消费者配置类
 	@Configuration
 	@EnableKafka
 	public class KafkaConsumerConfig {
@@ -132,7 +132,7 @@
 	        return propsMap;
 	    }
 	}
-####step 5:生产者类####
+#### step 5:生产者类
 	@Component
 	public class KafkaProducer {
 	    private Logger logger = LoggerFactory.getLogger(getClass());
@@ -144,7 +144,7 @@
 	        kafkaTemplate.send(topic, message);
 	    }
 	}
-####step 6:消费者类####
+#### step 6:消费者类
 	@Component
 	public class VideoCosConsumer {
 	    protected final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -157,7 +157,5 @@
 	    }
 	
 	}
-
-参考地址：  
-http://kafka.apache.org/quickstart  
+	 
 
